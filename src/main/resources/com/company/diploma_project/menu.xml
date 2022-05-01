@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://jmix.io/schema/ui/menu">
+
+    <menu id="application" caption="msg://com.company.diploma_project/menu.application" insertBefore="administration">
+        <item screen="User.browse" caption="msg://com.company.diploma_project.screen.user/UserBrowse.caption"/>
+        <item screen="Patient.browse" caption="msg://com.company.diploma_project.screen.patient/patientBrowse.caption"/>
+        <item screen="Diagnosis.browse"
+              caption="msg://com.company.diploma_project.screen.diagnosis/diagnosisBrowse.caption"/>
+        <item screen="BloodTest.browse"
+              caption="msg://com.company.diploma_project.screen.bloodtest/bloodTestBrowse.caption"/>
+        <item screen="CoagulationSystem.browse"
+              caption="msg://com.company.diploma_project.screen.coagulationsystem/coagulationSystemBrowse.caption"/>
+        <item screen="Therapy.browse" caption="msg://com.company.diploma_project.screen.therapy/therapyBrowse.caption"/>
+        <item screen="Skin.browse" caption="msg://com.company.diploma_project.screen.skin/skinBrowse.caption"/>
+        <item screen="Pharynx.browse" caption="msg://com.company.diploma_project.screen.pharynx/pharynxBrowse.caption"/>
+        <item screen="Nose.browse" caption="msg://com.company.diploma_project.screen.nose/noseBrowse.caption"/>
+        <item screen="PeripheralLymphNodes.browse"
+              caption="msg://com.company.diploma_project.screen.peripherallymphnodes/peripheralLymphNodesBrowse.caption"/>
+        <item screen="CardiovascularSystem.browse"
+              caption="msg://com.company.diploma_project.screen.cardiovascularsystem/cardiovascularSystemBrowse.caption"/>
+        <item screen="RespiratorySystem.browse"
+              caption="msg://com.company.diploma_project.screen.respiratorysystem/respiratorySystemBrowse.caption"/>
+        <item screen="Pain.browse" caption="msg://com.company.diploma_project.screen.pain/painBrowse.caption"/>
+        <item screen="GeneralState.browse"
+              caption="msg://com.company.diploma_project.screen.generalstate/generalStateBrowse.caption"/>
+    </menu>
+
+</menu-config>

@@ -1,0 +1,151 @@
+<window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        caption="msg://bloodTestBrowse.caption"
+        focusComponent="table">
+    <data>
+        <collection id="bloodTestsDc"
+                    class="com.company.diploma_project.entity.BloodTest">
+            <fetchPlan extends="_base"/>
+            <loader id="bloodTestsDl">
+                <query>
+                    <![CDATA[select e from BloodTest e]]>
+                </query>
+            </loader>
+        </collection>
+        <instance id="bloodTestDc"
+                  class="com.company.diploma_project.entity.BloodTest">
+            <fetchPlan extends="_base"/>
+            <loader/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="save" icon="OK" caption="msg:///actions.Ok" shortcut="CTRL-ENTER"/>
+        <action id="cancel" icon="CANCEL" caption="msg:///actions.Cancel" description="Esc"/>
+    </actions>
+    <dialogMode height="600" width="800"/>
+    <layout>
+        <split id="split" height="100%" orientation="horizontal" reversePosition="true" width="100%">
+            <vbox id="lookupBox" expand="table" height="100%" margin="false,true,false,false" spacing="true">
+                <filter id="filter" dataLoader="bloodTestsDl">
+                    <properties include=".*"/>
+                </filter>
+                <groupTable id="table"
+                            width="100%"
+                            dataContainer="bloodTestsDc">
+                    <actions>
+                        <action id="create" type="create"/>
+                        <action id="edit" type="edit"/>
+                        <action id="remove" type="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="patient"/>
+                        <column id="crb_1"/>
+                        <column id="crb_2"/>
+                        <column id="procalcitonin"/>
+                        <column id="rbc"/>
+                        <column id="hgb"/>
+                        <column id="htc"/>
+                        <column id="mcv"/>
+                        <column id="mch"/>
+                        <column id="mchc"/>
+                        <column id="rdw"/>
+                        <column id="plt"/>
+                        <column id="mpv"/>
+                        <column id="ptc"/>
+                        <column id="wbc_1"/>
+                        <column id="wbc_2"/>
+                        <column id="neu_percent_1"/>
+                        <column id="neu_percent_2"/>
+                        <column id="neu_abs"/>
+                        <column id="lymp_percent_1"/>
+                        <column id="lymp_percent_2"/>
+                        <column id="lymp_abs_1"/>
+                        <column id="lymp_abs_2"/>
+                        <column id="mono_percent"/>
+                        <column id="mono_abs"/>
+                        <column id="eo_percent_1"/>
+                        <column id="eo_percent_2"/>
+                        <column id="eo_abs_1"/>
+                        <column id="eo_abs_2"/>
+                        <column id="baso_percent_1"/>
+                        <column id="baso_pecent_2"/>
+                        <column id="baso_abs"/>
+                        <column id="soe"/>
+                        <column id="soe_2"/>
+                    </columns>
+                    <simplePagination/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn" action="table.create"
+                                caption="msg:///com.company.diploma_project.screen.createButtonCaption"/>
+                        <button id="editBtn" action="table.edit"
+                                caption="msg:///com.company.diploma_project.screen.editButtonCaption"/>
+                        <button id="removeBtn" action="table.remove"
+                                caption="msg:///com.company.diploma_project.screen.deleteButtonCaption"/>
+                    </buttonsPanel>
+                </groupTable>
+                <hbox id="lookupActions" spacing="true" visible="false">
+                    <button action="lookupSelectAction"/>
+                    <button action="lookupCancelAction"/>
+                </hbox>
+            </vbox>
+            <vbox id="editBox" height="100%" margin="false,false,false,true" expand="fieldGroupBox" spacing="true">
+                <scrollBox id="fieldGroupBox">
+                    <form id="form" dataContainer="bloodTestDc">
+                        <column width="350px">
+                            <entityPicker id="patientField" property="patient">
+                                <actions>
+                                    <action id="lookup" type="entity_lookup"/>
+                                    <action id="clear" type="entity_clear"/>
+                                </actions>
+                            </entityPicker>
+                            <textField id="crb_1Field" property="crb_1"/>
+                            <textField id="crb_2Field" property="crb_2"/>
+                            <textArea id="procalcitoninField" property="procalcitonin" rows="5"/>
+                            <textField id="rbcField" property="rbc"/>
+                            <textField id="hgbField" property="hgb"/>
+                            <textField id="htcField" property="htc"/>
+                            <textField id="mcvField" property="mcv"/>
+                            <textField id="mchField" property="mch"/>
+                            <textField id="mchcField" property="mchc"/>
+                            <textField id="rdwField" property="rdw"/>
+                            <textField id="pltField" property="plt"/>
+                            <textField id="mpvField" property="mpv"/>
+                            <textField id="ptcField" property="ptc"/>
+                            <textField id="wbc_1Field" property="wbc_1"/>
+                            <textField id="wbc_2Field" property="wbc_2"/>
+                            <textField id="neu_percent_1Field" property="neu_percent_1"/>
+                            <textField id="neu_percent_2Field" property="neu_percent_2"/>
+                            <textField id="neu_absField" property="neu_abs"/>
+                            <textField id="lymp_percent_1Field" property="lymp_percent_1"/>
+                            <textField id="lymp_percent_2Field" property="lymp_percent_2"/>
+                            <textField id="lymp_abs_1Field" property="lymp_abs_1"/>
+                            <textField id="lymp_abs_2Field" property="lymp_abs_2"/>
+                            <textField id="mono_percentField" property="mono_percent"/>
+                            <textField id="mono_absField" property="mono_abs"/>
+                            <textField id="eo_percent_1Field" property="eo_percent_1"/>
+                            <textField id="eo_percent_2Field" property="eo_percent_2"/>
+                            <textField id="eo_abs_1Field" property="eo_abs_1"/>
+                            <textField id="eo_abs_2Field" property="eo_abs_2"/>
+                            <textField id="baso_percent_1Field" property="baso_percent_1"/>
+                            <textField id="baso_pecent_2Field" property="baso_pecent_2"/>
+                            <textField id="baso_absField" property="baso_abs"/>
+                            <textField id="soeField" property="soe"/>
+                            <textField id="soe_2Field" property="soe_2"/>
+                        </column>
+                    </form>
+                </scrollBox>
+                <hbox id="actionsPane" spacing="true" visible="false">
+                    <button id="saveBtn" action="save"
+                            caption="msg:///com.company.diploma_project.screen.saveButtonCaption"/>
+                    <button id="cancelBtn" action="cancel"
+                            caption="msg:///com.company.diploma_project.screen.cancelButtonCaption"/>
+                </hbox>
+            </vbox>
+        </split>
+    </layout>
+</window>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="diploma_project">
+        <createTable tableName="PATIENT">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PATIENT"/>
+            </column>
+            <column name="DAYS" type="INT"/>
+            <column name="MONTHS" type="INT"/>
+            <column name="YEARS" type="INT"/>
+            <column name="CONCOMITANT_PATHOLOGY" type="CLOB"/>
+            <column name="EPIDEMIOLOGICAL_HISTORY" type="CLOB"/>
+            <column name="APPLICTION_DATE" type="DATE"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

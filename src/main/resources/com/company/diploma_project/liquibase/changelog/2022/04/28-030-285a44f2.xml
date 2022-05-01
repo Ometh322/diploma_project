@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="diploma_project">
+        <createTable tableName="BLOOD_TEST">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_BLOOD_TEST"/>
+            </column>
+            <column name="PATIENT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CRB_1" type="INT"/>
+            <column name="CRB_2" type="DOUBLE"/>
+            <column name="PROCALCITONIN" type="CLOB"/>
+            <column name="RBC" type="DOUBLE"/>
+            <column name="HGB" type="DOUBLE"/>
+            <column name="HTC" type="DOUBLE"/>
+            <column name="MCV" type="DOUBLE"/>
+            <column name="MCH" type="DOUBLE"/>
+            <column name="MCHC" type="DOUBLE"/>
+            <column name="RDW" type="DOUBLE"/>
+            <column name="PLT" type="DOUBLE"/>
+            <column name="MPV" type="DOUBLE"/>
+            <column name="PTC" type="DOUBLE"/>
+            <column name="WBC_1" type="DOUBLE"/>
+            <column name="WBC_2" type="DOUBLE"/>
+            <column name="NEU_PERCENT_1" type="DOUBLE"/>
+            <column name="NEU_PERCENT_2" type="DOUBLE"/>
+            <column name="NEU_ABS" type="DOUBLE"/>
+            <column name="LYMP_PERCENT_1" type="DOUBLE"/>
+            <column name="LYMP_PERCENT_2" type="DOUBLE"/>
+            <column name="LYMP_ABS_1" type="DOUBLE"/>
+            <column name="LYMP_ABS_2" type="DOUBLE"/>
+            <column name="MONO_PERCENT" type="DOUBLE"/>
+            <column name="MONO_ABS" type="DOUBLE"/>
+            <column name="EO_PERCENT_1" type="DOUBLE"/>
+            <column name="EO_PERCENT_2" type="DOUBLE"/>
+            <column name="EO_ABS_1" type="DOUBLE"/>
+            <column name="EO_ABS_2" type="DOUBLE"/>
+            <column name="BASO_PERCENT_1" type="DOUBLE"/>
+            <column name="BASO_PECENT_2" type="DOUBLE"/>
+            <column name="BASO_ABS" type="DOUBLE"/>
+            <column name="SOE" type="DOUBLE"/>
+            <column name="SOE_2" type="DOUBLE"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="diploma_project">
+        <createTable tableName="CARDIOVASCULAR_SYSTEM">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CARDIOVASCULAR_SYSTEM"/>
+            </column>
+            <column name="PATIENT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HEART_RATE" type="DOUBLE"/>
+            <column name="PULSE" type="INT"/>
+            <column name="BLOOD_PRESSURE" type="INT"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="diploma_project">
+        <createTable tableName="COAGULATION_SYSTEM">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_COAGULATION_SYSTEM"/>
+            </column>
+            <column name="PATIENT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PI" type="DOUBLE"/>
+            <column name="PT" type="DOUBLE"/>
+            <column name="ACHT" type="DOUBLE"/>
+            <column name="FIBRINOGEN" type="DOUBLE"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="4" author="diploma_project">
+        <createTable tableName="DIAGNOSIS">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_DIAGNOSIS"/>
+            </column>
+            <column name="PATIENT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DAY_OF_DIAGNOSIS" type="INT"/>
+            <column name="CONFIRMATION" type="CLOB"/>
+            <column name="DIAGNOSIS" type="CLOB"/>
+            <column name="COMPLICATIONS" type="CLOB"/>
+            <column name="TERMS_OF_HOSPITALIZATION" type="INT"/>
+            <column name="PNEUMONIA" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="D_DIMER" type="CLOB"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="5" author="diploma_project">
+        <createTable tableName="GENERAL_STATE">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_GENERAL_STATE"/>
+            </column>
+            <column name="PATIENT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TEMPERATURE" type="DOUBLE"/>
+            <column name="CONDITION_" type="CLOB"/>
+            <column name="VOMIT_DAYS" type="INT"/>
+            <column name="VOMITING_AMOUNT" type="CLOB"/>
+            <column name="FECES_TYPE" type="CLOB"/>
+            <column name="FECES_FREQUENTLY" type="CLOB"/>
+            <column name="DIURESIS_AMOUNT" type="CLOB"/>
+            <column name="DIURESIS_FREQUENTLY" type="CLOB"/>
+            <column name="EDEMA" type="CLOB"/>
+            <column name="HEMORRHAGIC_MANIFESTATIONS" type="CLOB"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="6" author="diploma_project">
+        <createTable tableName="NOSE">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_NOSE"/>
+            </column>
+            <column name="PATIENT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BREATH" type="CLOB"/>
+            <column name="DETACHABLE" type="CLOB"/>
+            <column name="SMELL" type="CLOB"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="7" author="diploma_project">
+        <createTable tableName="PAIN">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PAIN"/>
+            </column>
+            <column name="PATIENT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EXISTENCE" type="BOOLEAN"/>
+            <column name="LOCALIZATION" type="CLOB"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="8" author="diploma_project">
+        <createTable tableName="PERIPHERAL_LYMPH_NODES">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PERIPHERAL_LYMPH_NODES"/>
+            </column>
+            <column name="PATIENT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SIZE_" type="CLOB"/>
+            <column name="MOBILITY" type="CLOB"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="9" author="diploma_project">
+        <createTable tableName="PHARYNX">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PHARYNX"/>
+            </column>
+            <column name="PATIENT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HYPEREMIA" type="CLOB"/>
+            <column name="PLAQUE" type="CLOB"/>
+            <column name="TONSILS" type="CLOB"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="10" author="diploma_project">
+        <createTable tableName="RESPIRATORY_SYSTEM">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_RESPIRATORY_SYSTEM"/>
+            </column>
+            <column name="PATIENT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COUGH_NATURE" type="CLOB"/>
+            <column name="COUGH_FREQUENCY" type="CLOB"/>
+            <column name="DETACHABLE" type="CLOB"/>
+            <column name="RASPIRATORY_RATE" type="DOUBLE"/>
+            <column name="SATURATION" type="CLOB"/>
+            <column name="AUSCULTATION" type="CLOB"/>
+            <column name="PERCUSSION" type="CLOB"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="11" author="diploma_project">
+        <createTable tableName="SKIN">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_SKIN"/>
+            </column>
+            <column name="PATIENT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PURITY" type="CLOB"/>
+            <column name="HUMIDITY" type="CLOB"/>
+            <column name="COLOR" type="CLOB"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="12" author="diploma_project">
+        <createTable tableName="THERAPY">
+            <column name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_THERAPY"/>
+            </column>
+            <column name="PATIENT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="GENERAL" type="CLOB"/>
+            <column name="GENERAL_DAY" type="INT"/>
+            <column name="OXYGEN_THERAPY" type="CLOB"/>
+            <column name="OXYGEN_THERAPY_DAY" type="INT"/>
+            <column name="ANTIBACTERIAL" type="CLOB"/>
+            <column name="ANTIBACTERIAL_DAY" type="INT"/>
+            <column name="GKS" type="CLOB"/>
+            <column name="GKS_DAY" type="INT"/>
+            <column name="ANTICOAGULANTS" type="CLOB"/>
+            <column name="ANTICOAGULANTS_DAY" type="INT"/>
+            <column name="INTENSIVE_CARE" type="BOOLEAN"/>
+            <column name="INTENSIVE_CARE_DAY" type="INT"/>
+            <column name="OTHER_THERAPY" type="CLOB"/>
+            <column name="OTHER_THERAPY_DAY" type="INT"/>
+            <column name="UUID" type="UUID"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="13" author="diploma_project">
+        <addForeignKeyConstraint baseColumnNames="PATIENT_ID" baseTableName="BLOOD_TEST"
+                                 constraintName="FK_BLOOD_TEST_ON_PATIENT" referencedColumnNames="ID"
+                                 referencedTableName="PATIENT"/>
+    </changeSet>
+    <changeSet id="14" author="diploma_project">
+        <addForeignKeyConstraint baseColumnNames="PATIENT_ID" baseTableName="CARDIOVASCULAR_SYSTEM"
+                                 constraintName="FK_CARDIOVASCULAR_SYSTEM_ON_PATIENT" referencedColumnNames="ID"
+                                 referencedTableName="PATIENT"/>
+    </changeSet>
+    <changeSet id="15" author="diploma_project">
+        <addForeignKeyConstraint baseColumnNames="PATIENT_ID" baseTableName="COAGULATION_SYSTEM"
+                                 constraintName="FK_COAGULATION_SYSTEM_ON_PATIENT" referencedColumnNames="ID"
+                                 referencedTableName="PATIENT"/>
+    </changeSet>
+    <changeSet id="16" author="diploma_project">
+        <addForeignKeyConstraint baseColumnNames="PATIENT_ID" baseTableName="DIAGNOSIS"
+                                 constraintName="FK_DIAGNOSIS_ON_PATIENT" referencedColumnNames="ID"
+                                 referencedTableName="PATIENT"/>
+    </changeSet>
+    <changeSet id="17" author="diploma_project">
+        <addForeignKeyConstraint baseColumnNames="PATIENT_ID" baseTableName="GENERAL_STATE"
+                                 constraintName="FK_GENERAL_STATE_ON_PATIENT" referencedColumnNames="ID"
+                                 referencedTableName="PATIENT"/>
+    </changeSet>
+    <changeSet id="18" author="diploma_project">
+        <addForeignKeyConstraint baseColumnNames="PATIENT_ID" baseTableName="NOSE" constraintName="FK_NOSE_ON_PATIENT"
+                                 referencedColumnNames="ID" referencedTableName="PATIENT"/>
+    </changeSet>
+    <changeSet id="19" author="diploma_project">
+        <addForeignKeyConstraint baseColumnNames="PATIENT_ID" baseTableName="PAIN" constraintName="FK_PAIN_ON_PATIENT"
+                                 referencedColumnNames="ID" referencedTableName="PATIENT"/>
+    </changeSet>
+    <changeSet id="20" author="diploma_project">
+        <addForeignKeyConstraint baseColumnNames="PATIENT_ID" baseTableName="PERIPHERAL_LYMPH_NODES"
+                                 constraintName="FK_PERIPHERAL_LYMPH_NODES_ON_PATIENT" referencedColumnNames="ID"
+                                 referencedTableName="PATIENT"/>
+    </changeSet>
+    <changeSet id="21" author="diploma_project">
+        <addForeignKeyConstraint baseColumnNames="PATIENT_ID" baseTableName="PHARYNX"
+                                 constraintName="FK_PHARYNX_ON_PATIENT" referencedColumnNames="ID"
+                                 referencedTableName="PATIENT"/>
+    </changeSet>
+    <changeSet id="22" author="diploma_project">
+        <addForeignKeyConstraint baseColumnNames="PATIENT_ID" baseTableName="RESPIRATORY_SYSTEM"
+                                 constraintName="FK_RESPIRATORY_SYSTEM_ON_PATIENT" referencedColumnNames="ID"
+                                 referencedTableName="PATIENT"/>
+    </changeSet>
+    <changeSet id="23" author="diploma_project">
+        <addForeignKeyConstraint baseColumnNames="PATIENT_ID" baseTableName="SKIN" constraintName="FK_SKIN_ON_PATIENT"
+                                 referencedColumnNames="ID" referencedTableName="PATIENT"/>
+    </changeSet>
+    <changeSet id="24" author="diploma_project">
+        <addForeignKeyConstraint baseColumnNames="PATIENT_ID" baseTableName="THERAPY"
+                                 constraintName="FK_THERAPY_ON_PATIENT" referencedColumnNames="ID"
+                                 referencedTableName="PATIENT"/>
+    </changeSet>
+</databaseChangeLog>

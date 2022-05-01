@@ -1,0 +1,91 @@
+<window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        caption="msg://pharynxBrowse.caption"
+        focusComponent="table">
+    <data>
+        <collection id="pharynxesDc"
+                    class="com.company.diploma_project.entity.Pharynx">
+            <fetchPlan extends="_base"/>
+            <loader id="pharynxesDl">
+                <query>
+                    <![CDATA[select e from Pharynx e]]>
+                </query>
+            </loader>
+        </collection>
+        <instance id="pharynxDc"
+                  class="com.company.diploma_project.entity.Pharynx">
+            <fetchPlan extends="_base"/>
+            <loader/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="save" icon="OK" caption="msg:///actions.Ok" shortcut="CTRL-ENTER"/>
+        <action id="cancel" icon="CANCEL" caption="msg:///actions.Cancel" description="Esc"/>
+    </actions>
+    <dialogMode height="600" width="800"/>
+    <layout>
+        <split id="split" height="100%" orientation="horizontal" reversePosition="true" width="100%">
+            <vbox id="lookupBox" expand="table" height="100%" margin="false,true,false,false" spacing="true">
+                <filter id="filter" dataLoader="pharynxesDl">
+                    <properties include=".*"/>
+                </filter>
+                <groupTable id="table"
+                            width="100%"
+                            dataContainer="pharynxesDc">
+                    <actions>
+                        <action id="create" type="create"/>
+                        <action id="edit" type="edit"/>
+                        <action id="remove" type="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="patient"/>
+                        <column id="hyperemia"/>
+                        <column id="plaque"/>
+                        <column id="tonsils"/>
+                    </columns>
+                    <simplePagination/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn" action="table.create"
+                                caption="msg:///com.company.diploma_project.screen.createButtonCaption"/>
+                        <button id="editBtn" action="table.edit"
+                                caption="msg:///com.company.diploma_project.screen.editButtonCaption"/>
+                        <button id="removeBtn" action="table.remove"
+                                caption="msg:///com.company.diploma_project.screen.deleteButtonCaption"/>
+                    </buttonsPanel>
+                </groupTable>
+                <hbox id="lookupActions" spacing="true" visible="false">
+                    <button action="lookupSelectAction"/>
+                    <button action="lookupCancelAction"/>
+                </hbox>
+            </vbox>
+            <vbox id="editBox" height="100%" margin="false,false,false,true" expand="fieldGroupBox" spacing="true">
+                <scrollBox id="fieldGroupBox">
+                    <form id="form" dataContainer="pharynxDc">
+                        <column width="350px">
+                            <entityPicker id="patientField" property="patient">
+                                <actions>
+                                    <action id="lookup" type="entity_lookup"/>
+                                    <action id="clear" type="entity_clear"/>
+                                </actions>
+                            </entityPicker>
+                            <textArea id="hyperemiaField" property="hyperemia" rows="5"/>
+                            <textArea id="plaqueField" property="plaque" rows="5"/>
+                            <textArea id="tonsilsField" property="tonsils" rows="5"/>
+                        </column>
+                    </form>
+                </scrollBox>
+                <hbox id="actionsPane" spacing="true" visible="false">
+                    <button id="saveBtn" action="save"
+                            caption="msg:///com.company.diploma_project.screen.saveButtonCaption"/>
+                    <button id="cancelBtn" action="cancel"
+                            caption="msg:///com.company.diploma_project.screen.cancelButtonCaption"/>
+                </hbox>
+            </vbox>
+        </split>
+    </layout>
+</window>
